@@ -1,9 +1,9 @@
 class Animal: #global
+        alive = True #живой
+        fed = False #голодный
 
     def __init__(self,name):
         self.name = name
-        self.alive = True #живой
-        self.fed = False #голодный
 
     def eat(self,food):
         if food.edible:
@@ -16,10 +16,11 @@ class Animal: #global
             return False
 
 class Plant: #global
+        edible = False #съедобность
 
     def __init__(self,name):
         self.name = name
-        self.edible = False #съедобность
+
 
 class Mammal(Animal):
     pass
