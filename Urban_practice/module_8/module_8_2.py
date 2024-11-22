@@ -1,15 +1,12 @@
 def personal_sum(*numbers):
     result = 0
     incorrect_data = 0
-    has_incorrect_data = False
 
     for number in numbers:
         try:
             result += number
         except TypeError:
-            if not has_incorrect_data:
-                print('В numbers записан некорректный тип данных')
-                has_incorrect_data = True
+            print(f'В numbers записан некорректный тип данных {number}')
             incorrect_data  += 1
     return result,incorrect_data
 
