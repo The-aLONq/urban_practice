@@ -31,12 +31,10 @@ async def set_weight(message, state):
     await message.answer('Введите свой вес:')
     await UserState.weight.set()
 
-
 @dp.message_handler(state = UserState.weight)
 async def send_calories(message, state):
     await state.update_data(weight = message.text)
     data = await state.get_data()
-
 
     calories = (10 * int(data["weight"]) + 6.25 * int(data["growth"]) - 5 * int(data["age"]) + 5)
     await message.answer(f'Ваша норма калорий: {calories}')
@@ -48,4 +46,3 @@ async def all_message(message):
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
-
